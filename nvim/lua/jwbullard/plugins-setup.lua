@@ -58,6 +58,7 @@ return packer.startup(function(use)
   -- fuzzy finding
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+  use({ "BurntSushi/ripgrep" })
 
   -- VimTex
   use("lervag/vimtex")
@@ -81,6 +82,9 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use({ "glepnir/lspsaga.nvim", branch = "main" })
+
+  -- multiline cursors
+  use("mg979/vim-visual-multi")
 
   if packer_bootstrap then
     require("packer").sync()
