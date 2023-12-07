@@ -9,6 +9,8 @@ opt.tabstop = 4
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.textwidth = 80
+opt.formatoptions = "jcroqlt"
 
 --line wrapping
 opt.wrap = true

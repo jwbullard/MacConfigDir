@@ -13,7 +13,7 @@ require("jwbullard.plugins.lsp.lspsaga")
 require("jwbullard.plugins.lsp.lspconfig")
 
 if vim.g.neovide then
-  vim.o.guifont = "Fira Code:h16"
+  vim.o.guifont = "MesloGS NF:h16"
   vim.opt.linespace = 0
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_padding_top = 0
