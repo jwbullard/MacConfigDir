@@ -9,6 +9,9 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horzontally
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>bc", '"+yy') -- copy into computer's clipboard
+keymap.set("n", "<leader>bp", '"+p') -- paste from computer's clipboard
+
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
