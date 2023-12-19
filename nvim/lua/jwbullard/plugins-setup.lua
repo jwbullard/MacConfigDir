@@ -36,6 +36,7 @@ return packer.startup(function(use)
 
 --  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
   use("shatur/neovim-ayu") -- preferred colorscheme
+--  use("folke/tokyonight.nvim") -- preferred colorscheme
 
   -- cool surrounding character replacement and generation:w
   

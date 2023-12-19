@@ -1,6 +1,8 @@
 vim.cmd("colorscheme ayu")
+-- vim.cmd("colorscheme tokyonight-dark")
 
 local status, _ = pcall(vim.cmd, "colorscheme ayu")
+-- local status, _ = pcall(vim.cmd, "colorscheme tokyonight-dark")
 if not status then
   print ("Color scheme not found!")
   return

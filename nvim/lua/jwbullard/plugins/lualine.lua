@@ -26,7 +26,8 @@ local lualine_ayu = require("lualine.themes.ayu_dark")
 
 lualine.setup({
   options = {
---    theme = lualine_ayu
-    theme = 'ayu_dark'
+    theme = lualine_ayu
+--    theme = 'ayu_dark'
+--    theme = 'tokyonight-dark'
   }
 })
