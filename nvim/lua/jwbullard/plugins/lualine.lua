@@ -3,7 +3,7 @@ if not setup then
   return
 end
 
-local lualine_ayu = require("lualine.themes.ayu_dark")
+-- local lualine_ayu = require("lualine.themes.ayu_dark")
 
 -- local new_colors = {
 --   blue = "#65D1FF",
@@ -26,8 +26,8 @@ local lualine_ayu = require("lualine.themes.ayu_dark")
 
 lualine.setup({
   options = {
-    theme = lualine_ayu
---    theme = 'ayu_dark'
+--    theme = lualine_ayu
+      theme = 'ayu_dark'
 --    theme = 'tokyonight-dark'
   }
 })

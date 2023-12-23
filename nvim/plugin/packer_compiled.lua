@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",

@@ -36,9 +36,10 @@ return packer.startup(function(use)
 
 --  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
   use("shatur/neovim-ayu") -- preferred colorscheme
+--  use("rebelot/kanagawa.nvim") -- preferred colorscheme
 --  use("folke/tokyonight.nvim") -- preferred colorscheme
 
-  -- cool surrounding character replacement and generation:w
+  -- cool surrounding character replacement and generation
   
   use("tpope/vim-surround")
   use("vim-scripts/ReplaceWithRegister")
@@ -49,6 +50,9 @@ return packer.startup(function(use)
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
+
+  -- vscode-like pictograms to neovim built-in lsp
+  use("onsails/lspkind.nvim")
 
   -- icons
   use("kyazdani42/nvim-web-devicons")

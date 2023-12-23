@@ -13,6 +13,11 @@ if not luasnip_status then
   return
 end
 
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
+  return
+end
+
 -- load friendly-snippets
 require("luasnip/loaders/from_vscode").lazy_load()
 
