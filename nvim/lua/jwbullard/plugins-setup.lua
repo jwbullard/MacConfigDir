@@ -34,10 +34,10 @@ return packer.startup(function(use)
   -- lua functions that many plugins use
   use("nvim-lua/plenary.nvim")
 
---  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+--  Colorschemes
   use("shatur/neovim-ayu") -- preferred colorscheme
---  use("rebelot/kanagawa.nvim") -- preferred colorscheme
---  use("folke/tokyonight.nvim") -- preferred colorscheme
+  use("rebelot/kanagawa.nvim") -- preferred colorscheme
+  use("ramojus/mellifluous.nvim") -- preferred colorscheme
 
   -- cool surrounding character replacement and generation
   
@@ -82,6 +82,8 @@ return packer.startup(function(use)
   -- managing & installing lsp servers
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
+  use("mhartington/formatter.nvim")
+  use("mfussenegger/nvim-lint")
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig")
@@ -90,6 +92,12 @@ return packer.startup(function(use)
 
   -- multiline cursors
   use("mg979/vim-visual-multi")
+
+  -- Treesitter for neovim
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   if packer_bootstrap then
     require("packer").sync()

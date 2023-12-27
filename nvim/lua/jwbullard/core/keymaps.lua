@@ -24,5 +24,6 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
-
+-- none-ls
+keymap.set("n", "<leader>fo", ":Format<cr>")
 

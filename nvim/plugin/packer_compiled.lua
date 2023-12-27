@@ -114,10 +114,20 @@ _G.packer_plugins = {
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -144,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mellifluous.nvim"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/mellifluous.nvim",
+    url = "https://github.com/ramojus/mellifluous.nvim"
+  },
   ["neovim-ayu"] = {
     loaded = true,
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/neovim-ayu",
@@ -154,6 +169,11 @@ _G.packer_plugins = {
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -163,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/jwbullard/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
