@@ -1,105 +1,125 @@
--- auto install packer if not installed
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd([[packadd packer.nvim]])
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
+vim.opt.rtp:prepend(lazypath)
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
+vim.g.mapleader = ","
+-- General keymaps
+local keymap = vim.keymap
+keymap.set("n", "<leader>nh", ":nohl<CR>") -- remove any highlights
+keymap.set("n", "x", '"_x')
+keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s") -- split window horzontally
+keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>bn", ":bnext<CR>") -- copy into computer's clipboard
+keymap.set("n", "<leader>bp", ":bprev<CR>") -- copy into computer's clipboard
+keymap.set("n", "<leader>b", ":buffers<CR>:buffer<Space>") -- show buffers and get ready to specify one
 
--- import packer safely
-local status, packer = pcall(require, "packer")
-if not status then
-  return
-end
+require("lazy").setup({
+  { import = "jwbullard.plugins" },
+  { import = "jwbullard.plugins.lsp" },
+}, {
+  install = {
+    colorscheme = { "mellifluous" },
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
 
--- add list of plugins to install
-return packer.startup(function(use)
-  -- packer can manage itself
-  use("wbthomason/packer.nvim")
-
-  -- lua functions that many plugins use
-  use("nvim-lua/plenary.nvim")
+--local plugins = {
+-- lua functions that many plugins use
+--  'nvim-lua/plenary.nvim',
 
 --  Colorschemes
-  use("shatur/neovim-ayu") -- preferred colorscheme
-  use("rebelot/kanagawa.nvim") -- preferred colorscheme
-  use("ramojus/mellifluous.nvim") -- preferred colorscheme
+--  'shatur/neovim-ayu',
+--  'rebelot/kanagawa.nvim',
+--  'ramojus/mellifluous.nvim',
 
-  -- cool surrounding character replacement and generation
-  
-  use("tpope/vim-surround")
-  use("vim-scripts/ReplaceWithRegister")
+-- cool surrounding character replacement and generation
 
-  -- commenting with , branch = 
-  --"0.1.x" c
-  use("numToStr/Comment.nvim")
+--  'tpope/vim-surround',
+--  'vim-scripts/ReplaceWithRegister',
 
-  -- file explorer
-  use("nvim-tree/nvim-tree.lua")
+-- commenting with , branch =
+--"0.1.x" c
+--  'numToStr/Comment.nvim',
 
-  -- vscode-like pictograms to neovim built-in lsp
-  use("onsails/lspkind.nvim")
+-- file explorer
+--  'nvim-tree/nvim-tree.lua',
 
-  -- icons
-  use("kyazdani42/nvim-web-devicons")
+-- vscode-like pictograms to neovim built-in lsp
+--  'onsails/lspkind.nvim',
 
-  -- statusline
-  use("nvim-lualine/lualine.nvim")
+-- icons
+--  'kyazdani42/nvim-web-devicons',
 
-  -- fuzzy finding
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
-  use({ "BurntSushi/ripgrep" })
+-- statusline
+--  'nvim-lualine/lualine.nvim',
 
-  -- VimTex
-  use("lervag/vimtex")
+-- fuzzy finding
+--  {
+--  'nvim-telescope/telescope-fzf-native.nvim',
+--    build = 'make'
+--  },
 
-  -- autocompletion
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("micangl/cmp-vimtex")
+--  {
+--    'nvim-telescope/telescope.nvim',
+--    branch = '0.1.x'
+--  },
 
-  -- snippets
-  use("L3MON4D3/LuaSnip")
-  use("saadparwaiz1/cmp_luasnip")
-  use("rafamadriz/friendly-snippets")
+--  'BurntSushi/ripgrep',
 
-  -- managing & installing lsp servers
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("mhartington/formatter.nvim")
-  use("mfussenegger/nvim-lint")
+-- VimTex
+--  'lervag/vimtex',
 
-  -- configuring lsp servers
-  use("neovim/nvim-lspconfig")
-  use("hrsh7th/cmp-nvim-lsp")
-  use({ "glepnir/lspsaga.nvim", branch = "main" })
+-- autocompletion
+--  'hrsh7th/nvim-cmp',
+--  'hrsh7th/cmp-buffer',
+--  'hrsh7th/cmp-path',
+--  'micangl/cmp-vimtex',
 
-  -- multiline cursors
-  use("mg979/vim-visual-multi")
+-- snippets
+--  'L3MON4D3/LuaSnip',
+--  'saadparwaiz1/cmp_luasnip',
+--  'rafamadriz/friendly-snippets',
 
-  -- Treesitter for neovim
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+-- managing & installing lsp servers
+--  'williamboman/mason.nvim',
+--  'williamboman/mason-lspconfig.nvim',
+--  'mhartington/formatter.nvim',
+--  'mfussenegger/nvim-lint',
 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+-- configuring lsp servers
+--  'neovim/nvim-lspconfig',
+--  'hrsh7th/cmp-nvim-lsp',
+--  {
+--    'glepnir/lspsaga.nvim',
+--    branch = 'main'
+--  },
+
+-- multiline cursors
+--  'mg979/vim-visual-multi',
+
+-- Treesitter for neovim
+--  {
+--    'nvim-treesitter/nvim-treesitter',
+--    build = ':TSUpdate'
+--  }
+--}
+
+--local opts = {}
+
+-- require("lazy").setup(plugins, opts)

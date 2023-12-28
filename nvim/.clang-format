@@ -1,0 +1,11 @@
+---
+# Use the defaults from the Gnu style, but with 4 columns of indentation
+BasedOnStyle: GNU
+IndentWdith: 4
+---
+Language: Cpp
+# Force pointers to the type for C++
+DerivePointerAlignment: false
+PointerAlignment: Left
+ 
+
