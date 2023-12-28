@@ -7,7 +7,7 @@ return {
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
       cpp = { "cpplint" },
-      tex = { "vale" },
+      -- tex = { "vale" },
       html = { "tidy" },
       json = { "jsonlint" },
     }
