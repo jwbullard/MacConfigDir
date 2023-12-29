@@ -27,9 +27,6 @@ require("lazy").setup({
   { import = "jwbullard.plugins" },
   { import = "jwbullard.plugins.lsp" },
 }, {
-  install = {
-    colorscheme = { "mellifluous" },
-  },
   checker = {
     enabled = true,
     notify = false,

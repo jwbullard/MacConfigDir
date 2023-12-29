@@ -5,8 +5,8 @@ return {
     local mellifluous = require("mellifluous")
     mellifluous.setup({
       dim_inactive = false,
-      color_set = 'mountain',
+      color_set = "mountain",
     })
     vim.cmd([[colorscheme mellifluous]])
-  end
+  end,
 }
