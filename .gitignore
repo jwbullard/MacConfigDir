@@ -1,0 +1,8 @@
+# Ignore the QtProject folder
+QtProject/*
+
+# Ignore the fish folder
+fish/*
+
+# Ignore the gtk folder
+gtk-2.0/*
