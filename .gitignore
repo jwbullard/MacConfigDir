@@ -6,3 +6,6 @@ fish/*
 
 # Ignore the gtk folder
 gtk-2.0/*
+
+# Ignore the lazylock file
+nvim/lazy-lock.json

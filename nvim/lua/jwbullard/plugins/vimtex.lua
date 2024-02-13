@@ -32,5 +32,7 @@ return {
     vim.g["vimtex_complete_enabled"] = 1
     vim.g["vimtex_compiler_progname"] = "nvr"
     vim.g["vimtex_complete_close_braces"] = 1
+
+    vim.keymap.set("n", "<leader>ls", ":VimtexView<CR>") -- forward search requires vimtex plugin
   end,
 }
