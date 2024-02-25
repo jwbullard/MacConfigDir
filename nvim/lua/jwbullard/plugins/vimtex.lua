@@ -33,6 +33,7 @@ return {
     vim.g["vimtex_compiler_progname"] = "nvr"
     vim.g["vimtex_complete_close_braces"] = 1
 
-    vim.keymap.set("n", "<leader>ls", ":VimtexView<CR>") -- forward search requires vimtex plugin
+    vim.keymap.set("n", "<localleader>ls", ":VimtexView<CR>") -- forward search requires vimtex plugin
+    vim.keymap.set("n", "<localleader>wc", ":VimtexCountWords<CR>") -- count words in document
   end,
 }
