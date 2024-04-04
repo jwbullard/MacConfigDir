@@ -1,4 +1,4 @@
-  return {
+return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
@@ -12,9 +12,9 @@
         icons = {
           package_installed = "",
           package_pending = "󰌚",
-          package_uninstalled = ""
-        }
-      }
+          package_uninstalled = "",
+        },
+      },
     })
 
     mason_lspconfig.setup({
@@ -26,31 +26,31 @@
         "jsonls",
         "lemminx",
         "lua_ls",
-        "pyright"
+        "pyright",
       },
 
       -- auto-install configured servers with lspconfig
       automatic_installation = true,
     })
 
---    mason_null_ls.setup({
-      -- list of formatters and linters for mason to install
---      ensure_installed = {
---        "prettier",
---        "stylua",
---        "chktex",
---        "clang_format",
---        "cmake_format",
---        "cmake_lint",
---        "cppcheck",
---        "cpplint",
---        "fixjson",
---        "textidote",
---        "tidy",
---      },
+    --    mason_null_ls.setup(
+    -- list of formatters and linters for mason to install
+    --      ensure_installed = {
+    --        "prettier",
+    --        "stylua",
+    --        "chktex",
+    --        "clang_format",
+    --        "cmake_format",
+    --        "cmake_lint",
+    --        "cppcheck",
+    --        "cpplint",
+    --        "fixjson",
+    --        "textidote",
+    --        "tidy",
+    --      },
 
-      -- auto-install configured servers with null_ls
---      automatic_installation = true,
---    })
-  end
+    -- auto-install configured servers with null_ls
+    --      automatic_installation = true,
+    --    })
+  end,
 }

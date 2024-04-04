@@ -15,13 +15,13 @@ return {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-          }
-        }
-      }
+            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+          },
+        },
+      },
     })
 
-    telescope.load_extension("fzf");
+    telescope.load_extension("fzf")
 
     local builtin = require("telescope.builtin")
     local keymap = vim.keymap
@@ -29,5 +29,5 @@ return {
     keymap.set("n", "<leader>fg", builtin.live_grep, {})
     keymap.set("n", "<leader>fb", builtin.buffers, {})
     keymap.set("n", "<leader>fh", builtin.help_tags, {})
-  end
+  end,
 }
