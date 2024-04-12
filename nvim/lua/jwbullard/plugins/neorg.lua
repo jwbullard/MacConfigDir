@@ -13,10 +13,14 @@ return {
         load = {
           ["core.defaults"] = {}, -- Loads Default behavior
           ["core.concealer"] = {}, -- Loads Default behavior
+          ["core.integrations.treesitter"] = {},
+          ["core.export"] = {},
+          ["core.export.markdown"] = {},
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
                 notes = "~/notes",
+                default = "notes",
               },
             },
           },
