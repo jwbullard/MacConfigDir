@@ -15,7 +15,11 @@ return {
           ["core.concealer"] = {}, -- Loads Default behavior
           ["core.integrations.treesitter"] = {},
           ["core.export"] = {},
-          ["core.export.markdown"] = {},
+          ["core.export.markdown"] = {
+            config = {
+              extensions = "all",
+            },
+          },
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
@@ -26,6 +30,11 @@ return {
           },
         },
       })
+      -- set keymaps
+      vim.g.mapleader = ","
+      local keymap = vim.keymap
+
+      keymap.set("n", "<leader>no", "<cmd>Neorg workspace notes<CR>", { desc = "Open notes index" })
     end,
     run = ":Neorg sync-parsers",
   },
