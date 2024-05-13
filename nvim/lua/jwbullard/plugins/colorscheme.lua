@@ -19,11 +19,11 @@ return {
     kanagawa.setup({
       dimInactive = false,
       transparent = true,
-      -- theme = "dragon",
-      theme = "wave",
+      theme = "dragon",
+      -- theme = "wave",
       background = {
-        -- dark = "dragon",
-        dark = "wave",
+        dark = "dragon",
+        -- dark = "wave",
         light = "lotus",
       },
     })
