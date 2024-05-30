@@ -9,7 +9,7 @@ return {
     vim.g.mapleader = ","
     vim.o.winwidth = 10
     vim.o.winminwidth = 10
-    vim.o.equalalwyas = false
+    vim.o.equalalways = false
     require("windows").setup()
   end,
 }
