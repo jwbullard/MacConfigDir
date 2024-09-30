@@ -16,7 +16,14 @@ return {
     local lspkind = require("lspkind")
 
     -- load vs-code like snippets from plugins
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip.loaders.from_vscode").lazy_load()
+
+    luasnip.config.set_config({ -- setting Luasnip config
+      -- Enable autotriggered snippets
+      enable_autosnippets = true,
+      -- Update more often, :h events for more info.
+      updateevents = "TextChanged,TextChangedI",
+    })
 
     vim.cmd([[
     " Expand or jump in insert mode
