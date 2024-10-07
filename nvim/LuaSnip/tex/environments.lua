@@ -32,6 +32,7 @@ local line_begin = require("luasnip.extras.expand_conditions").line_begin
 -- Summary: When `LS_SELECT_RAW` is populated with a visual selection, the function
 -- returns an insert node whose initial text is set to the visual selection.
 -- When `LS_SELECT_RAW` is empty, the function simply returns an empty insert node.
+
 local get_visual = function(args, parent)
   if #parent.snippet.env.LS_SELECT_RAW > 0 then
     return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
@@ -39,7 +40,6 @@ local get_visual = function(args, parent)
     return sn(nil, i(1))
   end
 end
--- ----------------------------------------------------------------------------
 
 return {
   s(
@@ -73,7 +73,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])sc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])ss", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\textsc{<>}", {
       f(function(_, snip)
         return snip.captures[1]
