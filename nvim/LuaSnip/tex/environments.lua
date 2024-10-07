@@ -53,52 +53,12 @@ return {
   ),
 
   s(
-    { trig = "([^%l])ii", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textit{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])bb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textbf{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])ss", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textsc{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\texttt{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
     { trig = "env", dscr = "A LaTeX generic environment" },
     fmta(
       [[
-                \begin{<>}
-                    <>
-                \end{<>}
+        \begin{<>}
+          <>
+        \end{<>}
       ]],
       -- The insert node is placed in the <> angle brackets
       { i(1, "env"), i(2), rep(1) }
@@ -110,9 +70,9 @@ return {
     { trig = "ce", dscr = "A LaTeX center environment" },
     fmta(
       [[
-                \begin{center}
-                    <>
-                \end{center}
+        \begin{center}
+          <>
+        \end{center}
       ]],
       -- The insert node is placed in the <> angle brackets
       { i(1) }
@@ -124,10 +84,10 @@ return {
     { trig = "eq", dscr = "A LaTeX equation environment" },
     fmta(
       [[
-                \begin{equation}
-                    <>
-                    \label{eq:<>}
-                \end{equation}
+        \begin{equation}
+          <>
+          \label{eq:<>}
+        \end{equation}
       ]],
       -- The insert node is placed in the <> angle brackets
       { i(1), i(2) }
@@ -139,9 +99,9 @@ return {
     { trig = "al", dscr = "A LaTeX align environment" },
     fmta(
       [[
-                \begin{align}
-                    <>
-                \end{align}
+        \begin{align}
+          <>
+        \end{align}
       ]],
       -- The insert node is placed in the <> angle brackets
       { i(1) }
@@ -153,17 +113,32 @@ return {
     { trig = "tab", dscr = "A LaTeX table environment" },
     fmta(
       [[
-                \begin{table}[h]
-                \caption{\label{tab:<>}<>}
-                    \begin{tabular}{<>} \toprule
-                        <> &
-                        \\ \bottomrule
-                    \end{tabular}
-                \end{table}
+        \begin{table}[h]
+          \caption{\label{tab:<>}<>}
+          \begin{tabular}{<>} \toprule
+            <> & <> \\
+            \bottomrule
+          \end{tabular}
+        \end{table}
 
       ]],
       -- The insert node is placed in the <> angle brackets
-      { i(1, "label"), i(2, "caption"), i(3, "lll"), i(4) }
+      { i(1, "label"), i(2, "caption"), i(3, "ll"), i(4), i(5) }
+    ),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
+
+  s(
+    { trig = "mp", dscr = "A LaTeX minipage environment" },
+    fmta(
+      [[
+        \begin{minipage}[t]{<>\textwidth}
+          <>
+        \end{minipage}
+
+      ]],
+      -- The insert node is placed in the <> angle brackets
+      { i(1), i(2) }
     ),
     { condition = line_begin } -- set condition in the `opts` table
   ),
@@ -172,10 +147,10 @@ return {
     { trig = "fig", dscr = "A LaTeX figure environment" },
     fmta(
       [[
-                \begin{figure}[h]
-                    \centering\includegraphics[width=<>\textwidth]{ }
-                    \caption{\label{fig:<>}<>}
-                \end{figure}
+        \begin{figure}[h]
+          \centering\includegraphics[width=<>\textwidth]{ }
+          \caption{\label{fig:<>}<>}
+        \end{figure}
 
       ]],
       -- The insert node is placed in the <> angle brackets
@@ -188,8 +163,8 @@ return {
     { trig = "h1", dscr = "Top-level section", snippetType = "autosnippet" },
     fmta(
       [[
-                \section{<>}
-            ]],
+        \section{<>}
+      ]],
       { i(1) }
     ),
     { condition = line_begin } -- set condition in the `opts` table
@@ -199,8 +174,8 @@ return {
     { trig = "h2", dscr = "Top-level section", snippetType = "autosnippet" },
     fmta(
       [[
-                \subsection{<>}
-            ]],
+        \subsection{<>}
+      ]],
       { i(1) }
     ),
     { condition = line_begin } -- set condition in the `opts` table
@@ -210,8 +185,8 @@ return {
     { trig = "h3", dscr = "Top-level section", snippetType = "autosnippet" },
     fmta(
       [[
-                \subsubsection{<>}
-            ]],
+        \subsubsection{<>}
+      ]],
       { i(1) }
     ),
     { condition = line_begin } -- set condition in the `opts` table

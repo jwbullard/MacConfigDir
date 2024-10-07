@@ -43,72 +43,14 @@ end
 
 return {
   s(
-    { trig = "([^%l])ii", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textit{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
+    { trig = "vs", dscr = "vspace", snippetType = "autosnippet" },
+    fmta(
+      [[
+        \vspace{<>}
 
-  s(
-    { trig = "([^%l])bb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textbf{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])ss", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\textsc{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])tt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\texttt{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])lg", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\large{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])Lg", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\Large{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%l])LG", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("<>\\LARGE{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
+      ]],
+      { i(1) }
+    ),
+    { condition = line_begin } -- set condition in the `opts` table
   ),
 }
