@@ -11,6 +11,7 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 -- Code folding options
 
 -- vim.opt.foldmethod = "indent"
+-- vim.opt.foldcolumn = 1
 -- vim.opt.foldenable = true
 -- vim.opt.foldminlines = 1
 -- vim.opt.foldlevel = 99
