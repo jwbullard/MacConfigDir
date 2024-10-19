@@ -1,7 +1,9 @@
 return {
   "kevinhwang91/nvim-ufo",
+  lazy = false,
   dependencies = "kevinhwang91/promise-async",
   config = function()
+    vim.o.foldmethod = "indent"
     vim.o.foldcolumn = "1" -- '0' is not bad
     vim.o.foldlevel = 99 -- Using ufo provider needs a large value
     vim.o.foldlevelstart = 99

@@ -8,6 +8,13 @@ vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#969696", bold = false })
 
 vim.g.neovide_cursor_vfx_mode = "railgun"
 
+-- Code folding options
+
+-- vim.opt.foldmethod = "indent"
+-- vim.opt.foldenable = true
+-- vim.opt.foldminlines = 1
+-- vim.opt.foldlevel = 99
+
 -- Set global indenting and tab stops
 vim.opt.shiftwidth = 2
 vim.opt.smarttab = true

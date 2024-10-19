@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<map name="Backup">
+		<value name="Version">5.16.75</value>
+	</map>
+	<map name="CommonSettings">
+		<value name="DemoDeviceModeEnabled">false</value>
+	</map>
+	<map name="DataCollectionSettings">
+		<value name="configuration_loaded_date">2024-10-18T09:44:56.441</value>
+		<value name="dataConsent">false</value>
+		<map name="hwProfilesHashes">
+			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
+				<value name="{c19c73cd-a15e-4242-a5a5-cea6702f510e}"></value>
+			</map>
+		</map>
+		<value name="initialProfilesSent">true</value>
+		<value name="machine_id">b83defc5f1211d46ceb8903f4400f4a4</value>
+		<value name="needToSendSystemSensorsInfo">false</value>
+		<value name="session_ended">true</value>
+	</map>
+	<map name="Devices">
+		<map name="K70 RGB PRO">
+			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
+				<value name="ActiveHardwareProfileIndex">2</value>
+				<value name="BrightnessLevel">100</value>
+				<value name="ButtonSwitchDebounceTime">0</value>
+				<value name="DeviceMemoryModeEnabled">true</value>
+				<value name="FirstDetected">2024-07-23T17:13:29.409Z</value>
+				<value name="Layout">2</value>
+				<binary name="LedChannelCounts">%00%01%00%00%00%00%00%00%0BQList%3Cint%3E%00%00%00%00%00</binary>
+				<binary name="LedChannelExtensionsTypes">%00%01%00%00%00%00%00%001QList%3CQList%3Ccue%3A%3Adev%3A%3Amanifest%3A%3ALedChannelType%3E%3E%00%00%00%00%01%00%00%00%00</binary>
+				<binary name="LedChannelSynchronizations">%00%01%00%00%00%00%00%00%0CQList%3Cbool%3E%00%00%00%00%00</binary>
+				<binary name="LedChannelTypeCombinations">%00%01%00%00%00%00%00%001QList%3CQList%3Ccue%3A%3Adev%3A%3Amanifest%3A%3ALedChannelType%3E%3E%00%00%00%00%00</binary>
+				<binary name="LedChannelTypes">%00%01%00%00%00%00%00%00%2AQList%3Ccue%3A%3Adev%3A%3Amanifest%3A%3ALedChannelType%3E%00%00%00%00%01%00%00%00%0CNotConnected</binary>
+				<value name="LightingMode">Software</value>
+				<value name="UniqueDeviceId">{382fb5ec-9341-456e-9c51-e890bad661c2}</value>
+			</map>
+		</map>
+		<binary name="UniqueDeviceIds">%00%01%00%00%00%00%00%005QHash%3CQUuid%2CUniqueDeviceIdStorage%3A%3AUniqueDeviceData%3E%00%00%00%00%01%9D%AD%B3r%D8%D0KC%99W%5E%96%15h%03%E1%00%00%1B%1C%00%00%1B%B3%00%00%00%40%00F%005%000%000%001%009%000%005%006%002%002%00B%001%009%002%009%00A%00B%003%009%009%00C%002%006%001%001%000%001%000%000%002%00F%FF%FF%FF%FF</binary>
+	</map>
+	<map name="FirstProModeInfoPopup">
+		<value name="InfoPopupVisible">false</value>
+	</map>
+	<map name="HWPInfoPopup">
+		<value name="InfoPopupVisible">false</value>
+	</map>
+	<value name="Language">en</value>
+	<value name="LastDataCollectionConsentAppVersion">5.16.75</value>
+	<map name="LastDir">
+		<value name="ProfileProgramLink">/Applications</value>
+	</map>
+	<value name="LastLoadedAppVersion">5.18.106</value>
+	<map name="LightingLibraryStorage">
+		<value name="version">401</value>
+	</map>
+	<map name="Lightings">
+		<map name="Instant">
+			<value name="Enabled">false</value>
+		</map>
+	</map>
+	<map name="Privacy">
+		<value name="DataCollectionConsent">false</value>
+		<value name="DataCollectionConsentTimestamp">23 Jul 2024 12:13:22 -0500</value>
+	</map>
+	<map name="SecondProModeInfoPopup">
+		<value name="InfoPopupVisible">false</value>
+	</map>
+	<map name="Storage Locations">
+		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-eq_presets-limitedequalizerpresets.cuelibrary">true</value>
+		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-eq_presets-unlimitedequalizerpresets.cuelibrary">true</value>
+		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-eq_presets-unlimitedv2equalizerpresets.cuelibrary">true</value>
+		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-eq_presets-unlimitedv3equalizerpresets.cuelibrary">true</value>
+		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-quicklightingzones-quickLightingZones">true</value>
+	</map>
+	<map name="SwUpdate">
+		<value name="LastCheckDate">2024-10-29</value>
+	</map>
+	<map name="TutorialStates">
+		<value name="KeyboardKeyAssignments">None</value>
+		<value name="KeyboardLightings">None</value>
+	</map>
+	<map name="Update">
+		<value name="PrevUpdateTime">2024-10-18T14:44:55.753Z</value>
+		<value name="UpdateCount">20</value>
+		<value name="UpdateEndTime">2024-10-18T14:44:55.768Z</value>
+	</map>
+	<value name="defaultProfile">{6cd71b5b-3931-40b3-b349-10604b36d69e}</value>
+</config>
