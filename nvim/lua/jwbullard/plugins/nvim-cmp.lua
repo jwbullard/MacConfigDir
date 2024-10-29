@@ -65,7 +65,7 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "vimtex" }, -- LaTeX
-        { name = "codeium" }, -- Codeium
+        { name = "codeium", max_item_count = 40, priority = 1500 }, -- Codeium
       }),
     })
   end,
