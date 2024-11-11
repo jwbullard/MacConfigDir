@@ -24,7 +24,6 @@ return {
         "fortls",
         "html",
         "jsonls",
-        "lemminx",
         "lua_ls",
         "pyright",
       },
