@@ -7,7 +7,7 @@
 		<value name="DemoDeviceModeEnabled">false</value>
 	</map>
 	<map name="DataCollectionSettings">
-		<value name="configuration_loaded_date">2024-10-28T16:14:08.861</value>
+		<value name="configuration_loaded_date">2024-11-13T11:29:36.694</value>
 		<value name="dataConsent">false</value>
 		<map name="hwProfilesHashes">
 			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
@@ -22,7 +22,8 @@
 	<map name="Devices">
 		<map name="K70 RGB PRO">
 			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
-				<value name="ActiveHardwareProfileIndex">0</value>
+				<value name="ActiveHardwareProfileIndex">2</value>
+				<value name="BodyColor">0</value>
 				<value name="BrightnessLevel">80</value>
 				<value name="ButtonSwitchDebounceTime">0</value>
 				<value name="DeviceMemoryModeEnabled">true</value>
@@ -50,7 +51,7 @@
 	<map name="LastDir">
 		<value name="ProfileProgramLink">/Applications</value>
 	</map>
-	<value name="LastLoadedAppVersion">5.18.106</value>
+	<value name="LastLoadedAppVersion">5.20.89</value>
 	<map name="LightingLibraryStorage">
 		<value name="version">401</value>
 	</map>
@@ -74,16 +75,16 @@
 		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-quicklightingzones-quickLightingZones">true</value>
 	</map>
 	<map name="SwUpdate">
-		<value name="LastCheckDate">2024-10-29</value>
+		<value name="LastCheckDate">2024-11-26</value>
 	</map>
 	<map name="TutorialStates">
 		<value name="KeyboardKeyAssignments">None</value>
 		<value name="KeyboardLightings">None</value>
 	</map>
 	<map name="Update">
-		<value name="PrevUpdateTime">2024-10-28T21:14:08.785Z</value>
-		<value name="UpdateCount">28</value>
-		<value name="UpdateEndTime">2024-10-28T21:14:08.799Z</value>
+		<value name="PrevUpdateTime">2024-11-13T17:29:36.558Z</value>
+		<value name="UpdateCount">30</value>
+		<value name="UpdateEndTime">2024-11-13T17:29:36.572Z</value>
 	</map>
 	<value name="defaultProfile">{6cd71b5b-3931-40b3-b349-10604b36d69e}</value>
 </config>
