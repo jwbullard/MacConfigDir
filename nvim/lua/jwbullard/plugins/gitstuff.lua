@@ -61,7 +61,7 @@ return {
     config = function()
       local neogit = require("neogit")
       neogit.setup({})
-      vim.keymap.set("n", "<leader>gs", neogit.open, { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>gs", ":Neogit kind=vsplit<CR>", {})
     end,
   },
 }
