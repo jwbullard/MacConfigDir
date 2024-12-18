@@ -33,6 +33,15 @@ local line_begin = require("luasnip.extras.expand_conditions").line_begin
 -- returns an insert node whose initial text is set to the visual selection.
 -- When `LS_SELECT_RAW` is empty, the function simply returns an empty insert node.
 
+local is_file_begin = function()
+  local line_number = vim.fn["line"](".")
+  if line_number == 1 then
+    return true
+  else
+    return false
+  end
+end
+
 local get_visual = function(args, parent)
   if #parent.snippet.env.LS_SELECT_RAW > 0 then
     return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
@@ -52,5 +61,36 @@ return {
       { i(1) }
     ),
     { condition = line_begin } -- set condition in the `opts` table
+  ),
+
+  s(
+    { trig = "_pre", dscr = "preamble", snippetType = "autosnippet" },
+    fmta(
+      [[
+        \documentclass{article}
+
+        \input{~/Documents/Resources/LaTeX/Headers/Packages.tex}
+        \input{~/Documents/Resources/LaTeX/Headers/Commands.tex}
+
+        %\renewcommand{\theequation}{\arabic{equation}}
+
+        \begin{document}
+        \begin{center}
+            \Large{\textsf{<>}}
+        \end{center}
+        \begin{center}
+            \large{J.W. Bullard, Texas A\&M University}
+        \end{center}
+        \begin{center}
+        \DTMnow
+        \end{center}
+
+        \dparspace
+        <>
+        \end{document}
+      ]],
+      { i(1), i(2) }
+    ),
+    { condition = is_file_begin }
   ),
 }
