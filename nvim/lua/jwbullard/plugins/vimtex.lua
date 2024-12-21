@@ -10,6 +10,9 @@ return {
     -- Auto Indent
     vim.g["vimtex_indent_enabled"] = 1
 
+    -- Folding
+    vim.g["vimtex_indent_enabled"] = 1
+
     vim.g["vimtex_quickfix_ignore_filters"] = {
       "Marginpar on page",
       "Overfull",

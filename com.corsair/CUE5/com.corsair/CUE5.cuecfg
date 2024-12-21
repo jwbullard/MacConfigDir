@@ -7,7 +7,7 @@
 		<value name="DemoDeviceModeEnabled">false</value>
 	</map>
 	<map name="DataCollectionSettings">
-		<value name="configuration_loaded_date">2024-11-13T11:29:36.694</value>
+		<value name="configuration_loaded_date">2024-12-12T11:14:37.499</value>
 		<value name="dataConsent">false</value>
 		<map name="hwProfilesHashes">
 			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
@@ -17,7 +17,7 @@
 		<value name="initialProfilesSent">true</value>
 		<value name="machine_id">b83defc5f1211d46ceb8903f4400f4a4</value>
 		<value name="needToSendSystemSensorsInfo">false</value>
-		<value name="session_ended">false</value>
+		<value name="session_ended">true</value>
 	</map>
 	<map name="Devices">
 		<map name="K70 RGB PRO">
@@ -75,16 +75,16 @@
 		<value name="-Users-jwbullard-Library-Application Support-Corsair-CUE5-quicklightingzones-quickLightingZones">true</value>
 	</map>
 	<map name="SwUpdate">
-		<value name="LastCheckDate">2024-11-26</value>
+		<value name="LastCheckDate">2024-12-24</value>
 	</map>
 	<map name="TutorialStates">
 		<value name="KeyboardKeyAssignments">None</value>
 		<value name="KeyboardLightings">None</value>
 	</map>
 	<map name="Update">
-		<value name="PrevUpdateTime">2024-11-13T17:29:36.558Z</value>
-		<value name="UpdateCount">30</value>
-		<value name="UpdateEndTime">2024-11-13T17:29:36.572Z</value>
+		<value name="PrevUpdateTime">2024-12-12T17:14:37.407Z</value>
+		<value name="UpdateCount">32</value>
+		<value name="UpdateEndTime">2024-12-12T17:14:37.422Z</value>
 	</map>
 	<value name="defaultProfile">{6cd71b5b-3931-40b3-b349-10604b36d69e}</value>
 </config>
