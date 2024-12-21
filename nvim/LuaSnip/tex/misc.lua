@@ -53,4 +53,56 @@ return {
     ),
     { condition = line_begin } -- set condition in the `opts` table
   ),
+
+  s(
+    { trig = "pre", dscr = "vspace", snippetType = "autosnippet" },
+    fmta(
+      [[
+        \documentclass[11pt]{article}
+
+        \usepackage{amsmath,amstext,amssymb}
+        \usepackage[ttscale=0.825]{libertine}
+        \usepackage[libertine]{newtxmath}
+        \usepackage{chemformula}
+        \usepackage[separate-uncertainty]{siunitx}
+        \usepackage{xcolor}
+        \usepackage{xspace}
+        \usepackage{parskip}
+        \usepackage[margin=1.5in]{geometry}
+        \usepackage{sectsty}
+        \allsectionsfont{\sffamily}
+        \usepackage{booktabs}
+        \usepackage{threeparttable}
+        \usepackage{parskip}
+        \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+        \usepackage[backend=biber,
+            sorting=none,
+            style=numeric,
+            hyperref]{biblatex}
+        \newcommand{\portlandite}{\ch{Ca(OH)2}\xspace}
+        \newcommand{\sulfate}{\ensuremath{\overline{\text{S}}}\xspace}
+        \newcommand{\todo}[1]{\textcolor{red}{(\textit{#1})}\xspace}
+        \newcommand{\hfy}[1]{\textcolor{red}{(\textit{#1})}\xspace}
+        \newcommand{\std}{\ensuremath{^{\circ}}}
+        \newcommand{\eqconst}{\ensuremath{K}\xspace}
+        \newcommand{\actprod}{\ensuremath{Q}\xspace}
+        \newcommand{\satindex}{\ensuremath{\Omega}\xspace}
+        \newcommand{\conc}{\ensuremath{c}}
+        \newcommand{\mass}{\ensuremath{m}}
+        \DeclareSIQualifier{\sol}{sol}
+        \DeclareSIQualifier{\water}{\ch{H2O}}
+
+        %% The lineno packages adds line numbers. Start line numbering with
+        %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+        %% for the whole article with \linenumbers.
+        %\usepackage{lineno}
+        
+        \begin{document}
+        <>
+        \end{document}
+      ]],
+      { i(1) }
+    ),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
 }
