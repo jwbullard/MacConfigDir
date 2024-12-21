@@ -27,4 +27,7 @@ return {
     --     "startify",
     -- },
   },
+  config = function()
+    vim.keymap.set("n", "ho", require("precognition").toggle, { desc = "Toggle hints" })
+  end,
 }
