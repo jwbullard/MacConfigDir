@@ -72,7 +72,7 @@ return {
       "typescript",
       "vim",
       "vimdoc",
-      "xml", -- added this one, don't know if I can
+      -- "xml", -- added this one, don't know if I can
       "yaml",
     },
     incremental_selection = {
