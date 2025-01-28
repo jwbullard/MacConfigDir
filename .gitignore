@@ -7,5 +7,9 @@ fish/*
 # Ignore the gtk folder
 gtk-2.0/*
 
+# Ignore the raycast folder (for now)
+raycast
+raycast/*
+
 # Ignore the lazylock file
 nvim/lazy-lock.json

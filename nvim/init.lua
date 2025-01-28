@@ -23,5 +23,11 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.cindent = true
 
+-- Prevent Node.js from issuing warnings
+vim.g.loaded_node_provider = 0
+
+-- Prevent Perl from issuing warnings
+vim.gloaded_perl_provider = 0
+
 -- Load snippets from ~/.config/nvim/LuaSnip/
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/LuaSnip/" })
