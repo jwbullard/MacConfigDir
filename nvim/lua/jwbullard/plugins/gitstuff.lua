@@ -61,4 +61,13 @@ return {
       vim.keymap.set("n", "<leader>gs", ":Neogit kind=vsplit<CR>", {})
     end,
   },
+
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+  },
 }
