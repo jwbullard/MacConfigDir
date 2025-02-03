@@ -30,3 +30,17 @@ return {
     vim.cmd([[colorscheme kanagawa]])
   end,
 }
+
+--return {
+--  "wtfox/jellybeans.nvim",
+--  opts = {},
+--  priority = 1000,
+--  config = function()
+--    local jellybeans = require("jellybeans")
+--    jellybeans.setup({
+--      style = "dark",
+--      transparent = true,
+--    })
+--    vim.cmd.colorscheme("jellybeans")
+--  end,
+--}
