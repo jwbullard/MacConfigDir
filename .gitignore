@@ -7,6 +7,9 @@ fish/*
 # Ignore the gtk folder
 gtk-2.0/*
 
+com.corsair
+com.corsair/*
+
 # Ignore the raycast folder (for now)
 raycast
 raycast/*
