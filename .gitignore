@@ -14,5 +14,8 @@ com.corsair/*
 raycast
 raycast/*
 
+com.corsair
+com.corsair/*
+
 # Ignore the lazylock file
 nvim/lazy-lock.json
