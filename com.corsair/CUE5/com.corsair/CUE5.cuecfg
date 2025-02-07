@@ -22,7 +22,7 @@
 	<map name="Devices">
 		<map name="K70 RGB PRO">
 			<map name="{9dadb372-d8d0-4b43-9957-5e96156803e1}">
-				<value name="ActiveHardwareProfileIndex">1</value>
+				<value name="ActiveHardwareProfileIndex">2</value>
 				<value name="BodyColor">0</value>
 				<value name="BrightnessLevel">80</value>
 				<value name="ButtonSwitchDebounceTime">0</value>
