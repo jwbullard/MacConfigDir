@@ -2,7 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
+    -- "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
@@ -34,7 +35,7 @@ return {
       keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
       opts.desc = "See available code actions"
-      keymap.set({"n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- show lsp type definitions
+      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- show lsp type definitions
 
       opts.desc = "Smart rename"
       keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
@@ -82,56 +83,54 @@ return {
 
     -- configure xml server
     lspconfig["lemminx"].setup({
-     capabilities = capabilities,
-     on_attach = on_attach,
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure xml server
     lspconfig["lua_ls"].setup({
-     capabilities = capabilities,
-     on_attach = on_attach,
-     settings = { -- custom settings for lua
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize vim global
           diagnostics = {
             globals = { "vim" },
-           },
+          },
           workspace = {
             -- make language server aware of runtime files
-             library = {
-               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-               [vim.fn.stdpath("config") .. "/lua"] = true,
-             },
-           },
-         },
-      }
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+        },
+      },
     })
 
     -- configure fortran server
     lspconfig["fortls"].setup({
-     capabilities = capabilities,
-     on_attach = on_attach,
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure json server
     lspconfig["jsonls"].setup({
-     capabilities = capabilities,
-     on_attach = on_attach,
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure python server
     lspconfig["pyright"].setup({
-     capabilities = capabilities,
-     on_attach = on_attach,
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- Show line diagnostics automatically in hover window
     -- vim.diagnostic.disable()
     --
     vim.diagnostic.config({
-      virtual_text = false
+      virtual_text = false,
     })
-
-
-  end
+  end,
 }
