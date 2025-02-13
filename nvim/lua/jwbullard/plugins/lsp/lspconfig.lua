@@ -1,136 +1,151 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VimEnter",
   dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "ibhagwan/fzf-lua",
+    "b0o/schemastore.nvim",
     "saghen/blink.cmp",
-    -- "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    -- import lspconfig plugin
+    local function on_attach(client, bufnr)
+      local clients_without_formatting = { "ts_ls", "lua_ls" }
+      if vim.tbl_contains(clients_without_formatting, client.name) then
+        client.server_capabilities.documentFormattingProvider = false
+      end
+    end
+
     local lspconfig = require("lspconfig")
-
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local keymap = vim.keymap
-
-    local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
-
-      -- set keybinds
-      opts.desc = "Show LSP references"
-      keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, referens
-
-      opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-      opts.desc = "Show LSP definitions"
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-      opts.desc = "Show LSP implementations"
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
-      opts.desc = "Show LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
-      opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- show lsp type definitions
-
-      opts.desc = "Smart rename"
-      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-      opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- buffer diagnostics
-
-      opts.desc = "Show line diagnostics"
-      keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- line diagnostics
-
-      opts.desc = "Go to previous diagnostic"
-      keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- go to previous diagnostic
-
-      opts.desc = "Go to next diagnostic"
-      keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- go to previous diagnostic
-
-      opts.desc = "Show documentation for what is under the cursor"
-      keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under the cursor
-
-      opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- restart the LSP
-    end
-
-    --used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    -- change the diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure C/C++ server
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure xml server
-    lspconfig["lemminx"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure xml server
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize vim global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+    require("mason-lspconfig").setup_handlers({
+      -- The first entry (without a key) will be the default handler
+      -- and will be called for each installed server that doesn't have
+      -- a dedicated handler.
+      function(server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup({
+          capabilities = capabilities,
+        })
+      end,
+      -- Next, you can provide a dedicated handler for specific servers.
+      ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            formatting = false,
+            Lua = {
+              runtime = {
+                version = "LuaJIT",
+              },
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = {
+                  vim.env.VIMRUNTIME,
+                },
+              },
             },
           },
-        },
-      },
+        })
+      end,
+      ["jsonls"] = function()
+        lspconfig.jsonls.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+            },
+          },
+          setup = {
+            commands = {
+              Format = {
+                function()
+                  vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
+                end,
+              },
+            },
+          },
+        })
+      end,
+      ["ts_ls"] = function()
+        lspconfig.ts_ls.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            formatting = false,
+          },
+        })
+      end,
+      ["tailwindcss"] = function()
+        lspconfig.tailwindcss.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          filetypes = {
+            "html",
+            "css",
+            "scss",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "svelte",
+            "vue",
+          },
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = { { "tv\\(([^;]*)\\);", "'([^']*)'" } },
+              },
+              includeLanguages = {
+                svelte = "html",
+              },
+              lint = {
+                cssConflict = "warning",
+                invalidApply = "error",
+                invalidConfigPath = "error",
+                invalidScreen = "error",
+                invalidTailwindDirective = "error",
+                invalidVariant = "error",
+                recommendedVariantOrder = "warning",
+              },
+              validate = true,
+            },
+          },
+        })
+      end,
     })
 
-    -- configure fortran server
-    lspconfig["fortls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    require("lspconfig.ui.windows").default_options.border = "single"
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "single",
+      -- title = "hover",
     })
-
-    -- configure json server
-    lspconfig["jsonls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure python server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- Show line diagnostics automatically in hover window
-    -- vim.diagnostic.disable()
-    --
     vim.diagnostic.config({
-      virtual_text = false,
+      float = { border = "single" },
     })
   end,
+  keys = {
+    { "<leader>li", ":LspInfo<CR>", desc = "LSP information" },
+    { "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", desc = "LSP symbol rename" },
+    { "<leader>ls", ":lua vim.lsp.buf.signature_help()<CR>", desc = "LSP signature help" },
+    { "<leader>lk", ":lua vim.lsp.buf.signature_help()<CR>", desc = "LSP signature help" },
+    { "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", desc = "LSP format" },
+    { "<leader>ld", ":lua vim.diagnostic.open_float()<CR>", desc = "Open diagnostics" },
+    { "<leader>lq", ":lua vim.diagnostic.setloclist()<CR>", desc = "Quickfix diagnostics" },
+    { "<leader>la", ":FzfLua lsp_code_actions<CR>", desc = "LSP code actions" },
+    { "K", ":lua vim.lsp.buf.hover()<CR>", desc = "LSP Hover" },
+    { "gD", ":lua vim.lsp.buf.declaration()<CR>", desc = "LSP goto declaration" },
+    { "gd", ":FzfLua lsp_definitions<cr>", desc = "LSP goto definition" },
+    { "gr", ":FzfLua lsp_references<cr>", desc = "LSP goto references" },
+    { "gi", ":FzfLua lsp_implementations<cr>", desc = "LSP goto implementations" },
+    { "go", ":FzfLua lsp_document_symbols<CR>", desc = "LSP find document symbols" },
+    { "gO", ":FzfLua lsp_workspace_symbols<CR>", desc = "LSP find workspace symbols" },
+    { "g[", ":lua vim.diagnostic.goto_prev()<CR>", desc = "goto prev diagnostic" },
+    { "g]", ":lua vim.diagnostic.goto_next()<CR>", desc = "goto next diagnostic" },
+  },
 }

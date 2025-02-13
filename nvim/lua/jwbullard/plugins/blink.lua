@@ -3,9 +3,6 @@ return {
   -- optional: provides snippets for the snippet source
   dependencies = {
     { "L3MON4D3/LuaSnip", version = "v2.*" },
-    "micangl/cmp-vimtex",
-    "hrsh7th/cmp-nvim-lsp", -- everything breaks if I don't have this!?
-    "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },
 
@@ -23,9 +20,25 @@ return {
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
-    keymap = { preset = "super-tab" },
-
+    keymap = {
+      preset = "super-tab",
+      ["<C-k>"] = { "select_prev", "fallback" },
+      ["<C-j>"] = { "select_next", "fallback" },
+      ["<tab>"] = { "accept", "fallback" },
+    },
     snippets = { preset = "luasnip" },
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 0,
+        window = {
+          border = "single",
+        },
+      },
+      menu = { border = "single" },
+    },
+    signature = { window = { border = "single" } },
+
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
@@ -41,36 +54,6 @@ return {
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
     },
-
-    completion = {
-      --   keyword = {
-      --     -- 'prefix' will fuzzy match on the text before the cursor
-      --     -- 'full' will fuzzy match on the text before *and* after the cursor
-      --     -- example: 'foo_|_bar' will match 'foo_' for 'prefix' and 'foo__bar' for 'full'
-      --     range = "full",
-      --   },
-      menu = {
-        border = "single",
-      },
-      documentation = {
-        auto_show = true,
-        window = {
-          border = "single",
-        },
-      },
-      -- Displays a preview of the selected item on the current line
-      ghost_text = {
-        enabled = true,
-      },
-    },
-    -- fuzzy = {
-    --   -- Disabling this matches the behavior of fzf
-    --   use_typo_resistance = false,
-    --   -- Frecency tracks the most recently/frequently used items and boosts the score of the item
-    --   use_frecency = true,
-    --   -- Proximity bonus boosts the score of items matching nearby words
-    --   use_proximity = false,
-    -- }
   },
-  opts_extend = { "sources.default", "vimtex", "codeium" },
+  opts_extend = { "sources.default" },
 }

@@ -43,7 +43,7 @@ end
 
 return {
   s(
-    { trig = "([^%l])ii", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xi", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\textit{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -53,7 +53,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xbb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xb", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\textbf{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -63,7 +63,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xsc", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xs", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\textsc{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -73,7 +73,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xtt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xt", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\texttt{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -83,7 +83,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xlg", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xl", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\large{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -93,7 +93,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xLg", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xL", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\Large{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -103,7 +103,7 @@ return {
   ),
 
   s(
-    { trig = "([^%l])xLG", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([^%l])xG", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\LARGE{<>}", {
       f(function(_, snip)
         return snip.captures[1]
