@@ -14,7 +14,29 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layout = {
+        cycle = true,
+        preset = function()
+          return vim.o.columns >= 120 and "default" or "vertical"
+        end,
+      },
+      ---@class snacks.picker.matcher.Config
+      matcher = {
+        fuzzy = true, -- use fuzzy matching
+        smartcase = true,
+        ignorecase = false,
+      },
+      formatters = {
+        text = {
+          ft = nil, ---@tyupe string? filetype for highlighting
+        },
+        file = {
+          filename_first = true, -- display the filename before the file path
+        },
+      },
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
@@ -23,6 +45,13 @@ return {
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
+      },
+    },
+    image = {
+      force = true,
+      doc = {
+        enabled = true,
+        inline = true,
       },
     },
   },

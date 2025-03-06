@@ -24,18 +24,31 @@ return {
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "vimtex", "codeium" },
       providers = {
+        lsp = {
+          name = "LSP",
+          module = "blink.cmp.sources.lsp",
+          enabled = true,
+          async = false,
+          score_offset = 1000,
+        },
         vimtex = {
           name = "vimtex",
           module = "blink.cmpat.source",
-          score_offset = -3,
+          score_offset = 700,
         },
         codeium = {
           name = "codeium",
           module = "blink.compat.source",
-          score_offset = -3,
+          score_offset = 800,
+        },
+        buffer = {
+          name = "buffer",
+          module = "blink.compat.buffer",
+          score_offset = 1,
         },
       },
     },
+
     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -63,7 +76,9 @@ return {
             border = "single",
           },
         },
-        menu = { border = "single" },
+        menu = {
+          border = "single",
+        },
       },
       signature = { window = { border = "single" } },
 
