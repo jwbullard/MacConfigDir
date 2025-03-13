@@ -14,3 +14,4 @@ keymap.set("n", "<leader>bp", ":bprev<CR>") -- go to previous buffer
 keymap.set("n", "<leader>bd", ":bd!<CR>") -- close the buffer with extreme prejudice
 keymap.set("n", "<leader>b", ":buffers<CR>:buffer<Space>") -- show buffers and get ready to specify one
 keymap.set("n", "<leader>jq", ":%!jq .<CR>") -- show buffers and get ready to specify one
+keymap.set("n", "<leader>cc", ":cclose<CR>") -- close the quickfix window

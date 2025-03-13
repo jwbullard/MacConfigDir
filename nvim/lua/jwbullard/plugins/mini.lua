@@ -7,7 +7,7 @@ return {
     require("mini.ai").setup()
     require("mini.align").setup()
     require("mini.pairs").setup()
-    -- require("mini.surround").setup() -- alternative to nvim-surround
+    require("mini.surround").setup() -- alternative to nvim-surround
     -- require("mini.clue").setup()
     require("mini.extra").setup()
     -- require("mini.indentscope").setup() -- alternative to hlchunk
