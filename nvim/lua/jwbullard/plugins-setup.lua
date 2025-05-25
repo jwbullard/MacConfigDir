@@ -25,3 +25,26 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+
+vim.diagnostic.config({
+  virtual_text = false, -- floating text next to code is too noisy.
+  underline = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+    },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
+    },
+  },
+})

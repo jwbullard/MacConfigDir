@@ -12,7 +12,14 @@ return {
     notify = { enabled = true },
     notifier = {
       enabled = true,
-      timeout = 3000,
+      timeout = 3000, -- default timeout in ms
+      icons = {
+        error = " ",
+        warn = " ",
+        info = " ",
+        debug = " ",
+        trace = " ",
+      },
     },
     picker = {
       enabled = true,
@@ -30,7 +37,7 @@ return {
       },
       formatters = {
         text = {
-          ft = nil, ---@tyupe string? filetype for highlighting
+          ft = nil, ---@type string? filetype for highlighting
         },
         file = {
           filename_first = true, -- display the filename before the file path
@@ -265,20 +272,20 @@ return {
       end,
       desc = "Commands",
     },
-    {
-      "<leader>sd",
-      function()
-        Snacks.picker.diagnostics()
-      end,
-      desc = "Diagnostics",
-    },
-    {
-      "<leader>sD",
-      function()
-        Snacks.picker.diagnostics_buffer()
-      end,
-      desc = "Buffer Diagnostics",
-    },
+    -- {
+    -- "<leader>sd",
+    -- function()
+    -- Snacks.picker.diagnostics()
+    -- end,
+    -- desc = "Diagnostics",
+    -- },
+    -- {
+    -- "<leader>sD",
+    -- function()
+    -- Snacks.picker.diagnostics_buffer()
+    -- end,
+    -- desc = "Buffer Diagnostics",
+    -- },
     {
       "<leader>sh",
       function()
@@ -450,13 +457,13 @@ return {
       end,
       desc = "Select Scratch Buffer",
     },
-    {
-      "<leader>n",
-      function()
-        Snacks.notifier.show_history()
-      end,
-      desc = "Notification History",
-    },
+    -- {
+    -- "<leader>n",
+    -- function()
+    -- Snacks.notifier.show_history()
+    -- end,
+    -- desc = "Notification History",
+    -- },
     {
       "<leader>bd",
       function()
