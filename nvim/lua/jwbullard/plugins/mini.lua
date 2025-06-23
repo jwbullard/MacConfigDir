@@ -2,11 +2,9 @@ return {
   "echasnovski/mini.nvim",
   version = false,
   config = function()
-    -- vim.keymap.set("n", "zR", require("ufo").openAllFolds { desc = "Open all folds" })
-
     require("mini.ai").setup()
     require("mini.align").setup()
-    require("mini.pairs").setup()
+    -- require("mini.pairs").setup()
     require("mini.surround").setup() -- alternative to nvim-surround
     local miniclue = require("mini.clue")
     miniclue.setup({
