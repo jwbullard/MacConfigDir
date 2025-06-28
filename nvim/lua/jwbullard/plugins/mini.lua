@@ -3,9 +3,11 @@ return {
   version = false,
   config = function()
     require("mini.ai").setup()
-    require("mini.align").setup()
-    -- require("mini.pairs").setup()
+    -- require("mini.align").setup()   -- for table alignments, justifiying text chunks, etc.
+    require("mini.pairs").setup()
     require("mini.surround").setup() -- alternative to nvim-surround
+    require("mini.comment").setup()
+    require("mini.indentscope").setup() -- alternative to snacks-indent
     local miniclue = require("mini.clue")
     miniclue.setup({
       triggers = {

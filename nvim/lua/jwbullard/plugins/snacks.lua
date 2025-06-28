@@ -6,9 +6,9 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
+    explorer = { enabled = false },
+    indent = { enabled = false }, -- alternative to mini-indentscope
+    input = { enabled = false },
     notify = { enabled = true },
     notifier = {
       enabled = true,

@@ -70,7 +70,7 @@ return {
   ),
 
   s(
-    { trig = "l(", dscr = "Left-right parentheses", snippetType = "autosnippet" },
+    { trig = "lP", dscr = "Left-right parentheses", snippetType = "autosnippet" },
     fmta(
       [[
           \left( <> \right)
@@ -82,7 +82,7 @@ return {
   ),
 
   s(
-    { trig = "l[", dscr = "Left-right brackets", snippetType = "autosnippet" },
+    { trig = "lB", dscr = "Left-right brackets", snippetType = "autosnippet" },
     fmta(
       [[
           \left[ <> \right]
@@ -94,7 +94,7 @@ return {
   ),
 
   s(
-    { trig = "l<", dscr = "Left-right angle brackets", snippetType = "autosnippet" },
+    { trig = "lA", dscr = "Left-right angle brackets", snippetType = "autosnippet" },
     fmta(
       [[
           \langle <> \rangle
