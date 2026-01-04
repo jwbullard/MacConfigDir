@@ -1,0 +1,91 @@
+
+[colors.bright]
+black = "#3c3c51"
+red = "#ec818c"
+green = "#9ec967"
+yellow = "#f1c982"
+blue = "#7bc2df"
+magenta = "#a98fd2"
+cyan = "#7aa89f"
+white = "#a8a48d"
+
+[colors.normal]
+black = "#1f1f28"
+red = "#e46a78"
+green = "#98bc6d"
+yellow = "#e5c283"
+blue = "#7eb3c9"
+magenta = "#957fb8"
+cyan = "#7eb3c9"
+white = "#ddd8bb"
+
+[colors.primary]
+foreground = "#aba689"
+background = "#0b0b14"
+
+[colors.cursor]
+text = "#1f1f28"
+cursor = "#e6e0c2"
+
+[colors.selection]
+text = "#c8c093"
+background = "#2d4f67"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+chars = '\p'
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = '\n'
+key = "RBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[general]
+live_config_reload = true
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = """,│`|:"' ()[]{}<>\t"""
+
+[window]
+dynamic_padding = true
+opacity = 0.93
+#startup_mode = "Fullscreen"
+
+[keyboard]
