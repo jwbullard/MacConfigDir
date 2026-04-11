@@ -8,6 +8,7 @@ return {
     require("mini.surround").setup() -- alternative to nvim-surround
     require("mini.comment").setup()
     require("mini.indentscope").setup() -- alternative to snacks-indent
+    require("mini.icons").setup()
     local miniclue = require("mini.clue")
     miniclue.setup({
       triggers = {
@@ -55,6 +56,6 @@ return {
     require("mini.extra").setup()
     -- require("mini.indentscope").setup() -- alternative to hlchunk
     -- require("mini.jump").setup() -- jump to next character etc.
-    require("mini.operators").setup() -- used for auto-sorting text
+    -- require("mini.operators").setup() -- used for auto-sorting text
   end,
 }

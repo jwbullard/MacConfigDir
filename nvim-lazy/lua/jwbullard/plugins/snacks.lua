@@ -57,7 +57,7 @@ return {
     image = {
       force = true,
       doc = {
-        enabled = true,
+        enabled = false,
         inline = true,
       },
     },

@@ -26,3 +26,43 @@ keymap.set("n", "K", ":lua vim.lsp.buf.hover()<CR>") -- LSP Hover"
 keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>") -- LSP goto declaration"
 keymap.set("n", "g[", ":lua vim.diagnostic.goto_prev()<CR>") -- goto prev diagnostic
 keymap.set("n", "g]", ":lua vim.diagnostic.goto_next()<CR>") -- goto next diagnostic"
+
+-- Oil
+keymap.set("n", "<leader>oo", "<cmd>lua require('oil').toggle_float('.')<CR>", { noremap = true, silent = true })
+keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+
+-- Gitsigns
+keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
+
+-- Conform formatting
+keymap.set({ "n", "v" }, "<leader>mp", function()
+  require("conform").format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 500,
+  })
+end, { desc = "Format file or range (in visual mode)" })
+
+-- Linting
+keymap.set("n", "<leader>li", function()
+  require("lint").try_lint()
+end, { desc = "Trigger linting for current file" })
+
+-- Vimtex
+keymap.set("n", "<localleader>ls", ":VimtexView<CR>") -- forward search requires vimtex plugin
+keymap.set("n", "<localleader>wc", ":VimtexCountWords<CR>") -- count words in document
+
+-- Ufo cold folding
+keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+keymap.set("n", "zK", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end, { desc = "Peek Fold" })
+
+-- Git diffview
+keymap.set("n", "<leader>dv", ":DiffviewOpen<CR>", {})
+keymap.set("n", "<leader>dh", ":DiffviewFileHistory<CR>", {})

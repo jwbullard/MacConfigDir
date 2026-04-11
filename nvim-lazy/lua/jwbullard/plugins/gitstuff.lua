@@ -43,8 +43,6 @@ return {
           col = 1,
         },
       })
-      vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-      vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
     end,
   },
 
@@ -59,9 +57,5 @@ return {
 
   {
     "sindrets/diffview.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>dv", ":DiffviewOpen<CR>", {})
-      vim.keymap.set("n", "<leader>dh", ":DiffviewFileHistory<CR>", {})
-    end,
   },
 }

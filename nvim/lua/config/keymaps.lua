@@ -1,0 +1,31 @@
+local keymap = vim.keymap
+
+-- general keymaps
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Remove highlights" })
+keymap.set("n", "x", '"_x', { desc = "Delete without yanking" })
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split" })
+keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
+keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Previous buffer" })
+keymap.set("n", "<leader>b", ":buffers<CR>:buffer<Space>", { desc = "Show buffers" })
+keymap.set("n", "<leader>jq", ":%!jq .<CR>", { desc = "Format JSON with jq" })
+keymap.set("n", "<leader>cc", ":cclose<CR>", { desc = "Close quickfix window" })
+
+-- LSP keymaps
+keymap.set("n", "<leader>li", ":LspInfo<CR>", { desc = "LSP information" })
+keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP rename symbol" })
+keymap.set("n", "<leader>ls", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
+keymap.set("n", "<leader>lk", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
+keymap.set("n", "<leader>lf", function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = "LSP format" })
+keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Open diagnostics float" })
+keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
+keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+keymap.set("n", "g[", function()
+  vim.diagnostic.jump({ count = -1 })
+end, { desc = "Previous diagnostic" })
+keymap.set("n", "g]", function()
+  vim.diagnostic.jump({ count = 1 })
+end, { desc = "Next diagnostic" })
